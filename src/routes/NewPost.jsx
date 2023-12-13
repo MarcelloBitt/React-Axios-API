@@ -15,11 +15,14 @@ const NewPost = () => {
   const createPost = async (e) => {
     e.preventDefault();
 
-    if (!formData.title) {
+    const title = formData.title;
+    const body = formData.body;
+
+    if (!title) {
       setTitleError("Campo obrigatório!");
       return;
     }
-    if (!formData.body) {
+    if (!body) {
       setBodyError("Campo obrigatório!");
       return;
     }
@@ -27,8 +30,7 @@ const NewPost = () => {
     setTitleError("");
     setBodyError("");
 
-    const title = formData.title;
-    const body = formData.body;
+    
 
     const post = { title, body, userId: 1 };
 
