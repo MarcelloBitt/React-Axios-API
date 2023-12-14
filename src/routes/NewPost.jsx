@@ -14,21 +14,20 @@ const NewPost = () => {
 
   const createPost = async (e) => {
     e.preventDefault();
+    const title = formData.title;
+    const body = formData.body;
 
-    if (!formData.title) {
+    if (!title) {
       setTitleError("Campo obrigatório!");
       return;
     }
-    if (!formData.body) {
+    if (!body) {
       setBodyError("Campo obrigatório!");
       return;
     }
 
     setTitleError("");
     setBodyError("");
-
-    const title = formData.title;
-    const body = formData.body;
 
     const post = { title, body, userId: 1 };
 
@@ -45,7 +44,6 @@ const NewPost = () => {
         [e.target.name]: e.target.value,
       };
     });
-    console.log(formData);
   };
 
   return (
@@ -79,7 +77,11 @@ const NewPost = () => {
           ></textarea>
           {bodyError && <span className="error-message">{bodyError}</span>}
         </div>
-        <input type="submit" value="Criar Post" className="btn" />
+        <input
+          type="submit"
+          value="Criar Post"
+          className="btn"
+        />
       </form>
     </div>
   );
