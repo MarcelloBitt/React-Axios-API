@@ -17,10 +17,6 @@ const NewPost = () => {
     const title = formData.title;
     const body = formData.body;
 
-
-    const title = formData.title;
-    const body = formData.body;
-
     if (!title) {
       setTitleError("Campo obrigatório!");
       return;
